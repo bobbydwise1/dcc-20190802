@@ -13,7 +13,7 @@ If two different time intervals overlap, you need a seperate room for each;
 
 Determine what is considered overlap;
 
-
+Check overlaps, in a loop, all permutations.
 
 */
 
@@ -40,15 +40,31 @@ const checkOverlap = (arrayOne, arrayTwo) => {
   return 0;
 }
 
-
+//create a function that counts the amount of overlaps in all intervals;
+const checkAll = (arrayOfarrays) => {
+  let answer = 0;
+  for (i=0; i<arrayOfarrays.length; i++) {
+    let now = arrayOfarrays[i];
+    for (j=i+1; j<arrayOfarrays.length; j++) {
+      if (checkOverlap(now,arrayOfarrays[j])) {
+        answer++;
+      }
+    }
+  }
+  return answer;
+}
 
 $(document).ready(function() {
   let inter1 = [30,75];
   let inter2 = [0,50];
   let inter3 = [60,150];
+  let inter4 = [0,180];
 
   console.log('compare array1 and array2 = ', checkOverlap(inter1,inter2))
   console.log('compare array2 and array3 = ', checkOverlap(inter2,inter3))
+  console.log('compare array1 and array3 = ', checkOverlap(inter1,inter3))
+  console.log('checkall = ', checkAll([inter1,inter2,inter3,inter4]))
+
   $('#output-section-1').text(JSON.stringify(1));
   $('#output-section-2').text(JSON.stringify(2));
 });
