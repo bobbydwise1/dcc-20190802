@@ -48,15 +48,30 @@ const checkAll = (arrayOfarrays) => {
   return answer;
 }
 
+//create a function that determines the number of classes;
+const noclasses = (integer) => {
+  switch (integer) {
+    case 0:
+      return 1;
+      break;
+    default:
+      return 0;
+  }
+}
+
 $(document).ready(function() {
   let inter1 = [30,75];
   let inter2 = [0,50];
   let inter3 = [60,150];
   let inter4 = [0,180];
-  let inter5 = [0,60];
+  let inter5 = [180,190];
 
   console.log('compare array3 and array5 = ', checkOverlap(inter1,inter3))
-  console.log('checkall = ', checkAll([inter1,inter2,inter3,inter4,inter5]))
+  console.log('checkall 1 = ', checkAll([inter1]))
+  console.log('checkall 2 = ', checkAll([inter1,inter2]))
+  console.log('checkall 3 = ', checkAll([inter1,inter2,inter3]))
+  console.log('checkall 4 = ', checkAll([inter1,inter2,inter3,inter4]))
+  console.log('checkall 5 = ', checkAll([inter1,inter2,inter3,inter4,inter5]))
 
   $('#output-section-1').text(inter1);
   $('#output-section-2').text(inter2);
