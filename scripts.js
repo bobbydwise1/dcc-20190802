@@ -8,15 +8,6 @@ Given an array of time intervals (start, end) for classroom lectures (possibly o
 For example, given [(30, 75), (0, 50), (60, 150)], you should return 2.
 */
 
-/*
-If two different time intervals overlap, you need a seperate room for each;
-
-Determine what is considered overlap;
-
-Check overlaps, in a loop, all permutations.
-
-*/
-
 //check a time interval if the follows min to max;
 const checkArray = (arrayOne) => {
   if (arrayOne[0] <= arrayOne[1]) {
@@ -65,8 +56,12 @@ $(document).ready(function() {
   let inter5 = [0,60];
 
   console.log('compare array3 and array5 = ', checkOverlap(inter1,inter3))
-  console.log('checkall = ', checkAll([inter1,inter2,inter3,inter5]))
+  console.log('checkall = ', checkAll([inter1,inter2,inter3,inter4,inter5]))
 
-  $('#output-section-1').text(JSON.stringify(1));
-  $('#output-section-2').text(JSON.stringify(2));
+  $('#output-section-1').text(inter1);
+  $('#output-section-2').text(inter2);
+  $('#output-section-3').text(inter3);
+  $('#output-section-4').text(inter4);
+  $('#output-section-5').text(inter5);
+  $('#output-section-6').text(checkAll([inter1,inter2,inter3,inter4,inter5]));
 });
