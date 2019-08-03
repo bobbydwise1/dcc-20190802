@@ -29,14 +29,17 @@ const checkArray = (arrayOne) => {
 //make a function that compares if two intervals overlap;
 const checkOverlap = (arrayOne, arrayTwo) => {
   if (!(checkArray(arrayOne)) || !(checkArray(arrayTwo))) {
-    console.log('unlegal arrays')
+    //console.log('unlegal arrays')
     return 0;
   }
-  if ((arrayOne[0] > arrayTwo[1]) || (arrayOne[1] > arrayTwo[0])) {
-    console.log('it does overlap');
+  if ( ((arrayOne[1] < arrayTwo[1]) && (arrayOne[1] > arrayTwo[0]))
+    ||
+    ((arrayTwo[1] < arrayOne[1]) && (arrayTwo[1] > arrayOne[0]))
+  ) {
+    //console.log('it does overlap');
     return 1;
   }
-  console.log('does not overlap')
+  //console.log('does not overlap')
   return 0;
 }
 
@@ -59,11 +62,10 @@ $(document).ready(function() {
   let inter2 = [0,50];
   let inter3 = [60,150];
   let inter4 = [0,180];
+  let inter5 = [0,60];
 
-  console.log('compare array1 and array2 = ', checkOverlap(inter1,inter2))
-  console.log('compare array2 and array3 = ', checkOverlap(inter2,inter3))
-  console.log('compare array1 and array3 = ', checkOverlap(inter1,inter3))
-  console.log('checkall = ', checkAll([inter1,inter2,inter3,inter4]))
+  console.log('compare array3 and array5 = ', checkOverlap(inter1,inter3))
+  console.log('checkall = ', checkAll([inter1,inter2,inter3,inter5]))
 
   $('#output-section-1').text(JSON.stringify(1));
   $('#output-section-2').text(JSON.stringify(2));
